@@ -1,7 +1,17 @@
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 import 'package:todo_list_application/My_theme.dart';
+
+import 'package:todo_list_application/firebase_utils.dart';
+import 'package:todo_list_application/model/task.dart';
+import 'package:todo_list_application/provider/list_provider.dart';
+
+
+
 class AddTaskBottomSheet extends StatefulWidget {
 
 
@@ -15,9 +25,10 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
   var formKey = GlobalKey<FormState>();
   String title="";
   String description="";
+  late ListProvider listProvider;
   @override
   Widget build(BuildContext context) {
-
+     listProvider=Provider.of<ListProvider>(context);
     return  Padding(
       padding: const EdgeInsets.all(20),
       child: SingleChildScrollView(
@@ -112,8 +123,16 @@ class _AddTaskBottomSheetState extends State<AddTaskBottomSheet> {
     }
   }
 
-  void addTask() {
+  void  addTask() {
    if( formKey.currentState!.validate()==true){
+     Tasks task=Tasks(title: title, description: description, dateTime: selectedDate);
+      FirebaseUtils.addTaskToFireStore(task).timeout(Duration (milliseconds: 500),onTimeout: (){
+
+          print("task added successfuly");
+          listProvider.getAllTaskFromFirebase();
+        Navigator.pop(context);
+
+      });
 
    }
   }

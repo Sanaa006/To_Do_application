@@ -24,6 +24,7 @@ class _LangaugeBottomSheetState extends State<LangaugeBottomSheet> {
             onTap: (){
               ///Change language to English
               provider.changeLangaugeApp("en");
+              Navigator.pop(context);
             },
             child:provider.langaugeApp=="en"?getSelectedItem(AppLocalizations.of(context)!.english):getUnselectedItem(AppLocalizations.of(context)!.english)
           ),
@@ -32,7 +33,7 @@ class _LangaugeBottomSheetState extends State<LangaugeBottomSheet> {
               onTap: (){
             ///change language to arabic
                 provider.changeLangaugeApp("ar");
-
+                Navigator.pop(context);
           },
               child:provider.langaugeApp=="ar"?getSelectedItem(AppLocalizations.of(context)!.arabic):getUnselectedItem(AppLocalizations.of(context)!.arabic) ),
         ],

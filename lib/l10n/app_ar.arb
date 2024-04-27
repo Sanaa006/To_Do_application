@@ -14,5 +14,16 @@
   "arabic": "العربية",
   "mode": "النمط",
   "light": "مضيء",
-  "dark": "داكن"
+  "dark": "داكن",
+  "edit_task": "تعديل المهمة",
+  "save_changes": "حفظ التعديلات",
+  "already_have_an_acount": "مسبفاً لدي حساب",
+  "or_create_acount": "أو إنشاء حساب",
+  "create_acount": "إنشاء حساب",
+  "please_enter_username": "رجاء أدخل اسم المستخدم",
+  "please_enter_password": "رجاء أدخل كلمة المرور",
+  "please_enter_email": "رجاء أدخل الايميل",
+  "please_enter_confirm_password": "رجاء أدخل تأكيد كلمة المرور",
+  "login": "تسجيل دخول",
+  "welcome_back": "مرحبًا بعودتك !"
 }

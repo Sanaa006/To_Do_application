@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:AppBar(
-        toolbarHeight: MediaQuery.of(context).size.height*0.18,
+        toolbarHeight: MediaQuery.of(context).size.height*0.20,
         title:selectTap==0?Text(AppLocalizations.of(context)!.todolist,style:Theme.of(context).textTheme.titleLarge):Text(AppLocalizations.of(context)!.settings,style:Theme.of(context).textTheme.titleLarge)
       ),
       bottomNavigationBar: BottomAppBar(

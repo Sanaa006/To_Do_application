@@ -24,6 +24,7 @@ class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
             onTap: (){
               ///Change theme to light
               provider.changeThemeApp(ThemeMode.light);
+              Navigator.pop(context);
             },
             child:provider.themeApp==ThemeMode.light?getSelectedItem(AppLocalizations.of(context)!.light):getUnselectedItem(AppLocalizations.of(context)!.light)
           ),
@@ -32,7 +33,7 @@ class _ThemeBottomSheetState extends State<ThemeBottomSheet> {
               onTap: (){
             ///change theme to dark
                 provider.changeThemeApp(ThemeMode.dark);
-
+                Navigator.pop(context);
           },
               child:provider.themeApp==ThemeMode.dark?getSelectedItem(AppLocalizations.of(context)!.dark):getUnselectedItem(AppLocalizations.of(context)!.dark) ),
         ],
